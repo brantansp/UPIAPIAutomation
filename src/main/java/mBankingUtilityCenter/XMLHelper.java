@@ -92,7 +92,6 @@ public class XMLHelper {
                 // String xmlDoc = "<?xml version="1.0"?><flatFields><java>6.0</java><xml>yes</xml><tags>given tags</tags><doc /><multipleRow /></flatFields>";
                  Document doc = xmlHelper.getDocumentBuilder().parse(
                          xmlHelper.getInputStream(xmlDoc));
-                 doc.getDocumentElement().normalize();
                  NodeList nodeLst = doc.getDocumentElement().getChildNodes();
                  Map<String, String> elemen = xmlHelper.getElementKeyValue(nodeLst);
                  Iterator<?> it = elemen.entrySet().iterator();

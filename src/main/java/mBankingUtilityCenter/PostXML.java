@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
 import java.net.HttpURLConnection;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -19,7 +22,30 @@ public class PostXML {
     	//StringBuilder sb = new StringBuilder();
     	//request = "<v:Envelope xmlns:i=\"http://www.w3.org/1999/XMLSchema-instance\" xmlns:d=\"http://www.w3.org/1999/XMLSchema\" xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\"><v:Header /><v:Body><ListRegPayee xmlns=\"http://com/fss/upi\" id=\"o0\" c:root=\"1\"><req><LastRec i:type=\"d:string\">1</LastRec><TypeInd i:type=\"d:string\">VIR</TypeInd><RecCount i:type=\"d:string\">1</RecCount><UPI><UserID i:type=\"d:string\">UserID</UserID><BankId i:type=\"d:string\">504511</BankId><OrgId i:type=\"d:string\">400046</OrgId><PayerType i:type=\"d:string\">PERSON</PayerType><MobileNo i:type=\"d:string\">9791102968</MobileNo><Remarks i:type=\"d:string\"></Remarks><PayerCode i:type=\"d:string\">0000</PayerCode><Channel i:type=\"d:string\">03</Channel><AppVersion i:type=\"d:string\">1.1.1</AppVersion><UserPwd i:type=\"d:string\">111111</UserPwd><DeviceID i:type=\"d:string\">69ff6866</DeviceID><MsgId i:type=\"d:string\">UBI7F75A4E96CA84002A6FC8E3DA89FAF48</MsgId><TimeStamp i:type=\"d:string\">1519016595</TimeStamp></UPI></req></ListRegPayee></v:Body></v:Envelope>";
     	//sendString("http://10.144.20.71:9095/UPIService?bridgeEndpoint=true",requestBuilder().toString());
-    	XMLHelper.writeRequestToText(requestBuilder().toString());
+    	
+		//Write request working
+		//XMLHelper.writeRequestToText(requestBuilder().toString());
+		
+		
+		StringBuilder sb = new StringBuilder();
+		  //Map<String, String> map = new HashMap<String, String>();
+		
+			String test = "Request=ListRegPayee;"
+					+ "MobileNo=9791102968;"
+					+ "PayerType=PERSON";	    
+			Map<String, String> map = new HashMap<String, String>();
+			//String test = "pet=cat;car=honda;location=Japan;food=sushi";
+			String[] test1 = test.split(";");
+
+			for (String s : test1) {
+			    String[] t = s.split("=");
+			    map.put(t[0], t[1]);
+			}
+//<UserID i:type="d:string">UserID</UserID>
+			for (String s : map.keySet()) {
+			    System.out.println("<"+s+" i:type=\"d:string\">"+ map.get(s)+"</UserID>");
+			}
+		System.out.println("here"+sb);
 	}
 	
 	public static StringBuilder requestBuilder()
@@ -44,6 +70,9 @@ public class PostXML {
 		
 		return sb;
 	}
+	
+
+	
 	
 	public static String sendString(String targetURL, String urlParameters)
     {
