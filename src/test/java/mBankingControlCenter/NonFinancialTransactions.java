@@ -110,6 +110,9 @@ public class NonFinancialTransactions extends ExtentManager{
         /**
          * For checking Single transactions
          */
+		index=0; 
+		response =BaseObject.buildRequest(index);
+		BaseObject.assertResponse(response, index);
 		}
 }
 

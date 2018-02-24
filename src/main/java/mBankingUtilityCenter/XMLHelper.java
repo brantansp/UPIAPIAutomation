@@ -31,16 +31,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-/**
- *
- * Simple XML Class -
- * This XML Class is a simple helper only for specific case. Originally developed to get
- * key and value of flat xml.
- * Feel free to use this piece of code as you like with/out permission - if possible mention this site.
- * I am not responsible for any consequences that would result after using this piece of code.
- *
- * @author http://gullele.com
- */
+
 public class XMLHelper {
     private DocumentBuilderFactory documentBuilderFactory;
     private DocumentBuilder documentBuilder;
@@ -133,12 +124,6 @@ public class XMLHelper {
       
     }
 
-    /**
-     * Provides NodeList from the given Document object by the tagName
-     * @param Document - doc
-     * @param tagname
-     * @return NodeList
-     */
     public NodeList getNodeListByTag(Document doc, String tagname){
         NodeList nodeList = null;
         if (doc !=null && !tagname.isEmpty()){
@@ -147,11 +132,6 @@ public class XMLHelper {
         return nodeList;
     }
 
-    /**
-     *
-     * @param nodeList
-     * @return Map
-     */
     public Map<String, String> getElementKeyValue(NodeList nodeList){
         Map<String, String> elements = new HashMap<String, String>();
         if (nodeList!=null && nodeList.getLength()>0 ){
@@ -165,11 +145,6 @@ public class XMLHelper {
         return elements;
     }
 
-    /**
-     * Returns InputString given string
-     * @param string
-     * @return InputStream
-     */
     public InputStream getInputStream(String string){
         InputStream inputStream = null;
         if (!string.isEmpty()){
@@ -182,10 +157,6 @@ public class XMLHelper {
         return inputStream;
     }
 
-    /**
-     * Setters and getters
-     * @return
-     */
     public DocumentBuilderFactory getDocumentBuilderFactory() {
         return documentBuilderFactory;
     }
