@@ -8,12 +8,15 @@ import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.reporters.jq.Main;
 
-import mBankingPageObjectModel.Configuration;
+/**
+ * 
+ * @author brantansp
+ *
+ */
 
 public class HttpConnect {
 

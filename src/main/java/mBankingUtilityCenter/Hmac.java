@@ -9,8 +9,12 @@ import java.util.Map;
 import java.util.Random;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-//import org.apache.commons.lang.StringUtils;
-//check
+
+/**
+ * 
+ * @author brantansp
+ *
+ */
 public class Hmac {
 
 	  private Map<String, String> integrityCheckRequired;

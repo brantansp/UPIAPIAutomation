@@ -3,7 +3,11 @@ package mBankingUtilityCenter;
 import java.util.Random;
 import java.math.BigInteger;
 
-
+/**
+ * 
+ * @author brantansp
+ *
+ */
 public class RandomNumGenerator {
 	//static BigInteger randNum  = new BigInteger(53, new Random());
 	static BigInteger randNum;

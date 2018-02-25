@@ -18,7 +18,13 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import org.apache.log4j.Logger;
+*/
 
+/**
+ * @author brantansp
+ */
+
+/*
 public class SendEMail
 {
   private static final Logger log1 = Logger.getLogger("com.src.error");

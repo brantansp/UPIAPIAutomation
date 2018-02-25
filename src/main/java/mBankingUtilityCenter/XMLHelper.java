@@ -31,6 +31,11 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+/**
+ * 
+ * @author brantansp
+ *
+ */
 
 public class XMLHelper {
     private DocumentBuilderFactory documentBuilderFactory;

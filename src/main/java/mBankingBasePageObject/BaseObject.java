@@ -11,7 +11,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import mBankingPageObjectModel.Configuration;
 import mBankingPageObjectModel.StaticStore;
 import mBankingUtilityCenter.Hmac;
 import mBankingUtilityCenter.HttpConnect;
@@ -47,7 +46,7 @@ public static String buildRequest(int index)
 		/*transactionID= response.substring(response.lastIndexOf("TXNID:")+6, response.lastIndexOf("TXNID:")+18);
 		log.info("Transaction ID : "+transactionID);
 	*/
-		if(Configuration.dbReport=="N")
+		if(false)
 		{
 			dbResult = dbTransactionlog.fetchRecord(transactionID);
 			//System.out.println(StaticStore.menuDesc[index][0]);

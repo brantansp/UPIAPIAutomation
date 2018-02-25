@@ -6,7 +6,12 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-//
+
+/**
+ * 
+ * @author brantansp
+ *
+ */
 public class dbTransactionlog {
 	private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	private static final String DB_CONNECTION = "jdbc:oracle:thin:@//10.144.24.45:1527/ormpypre";

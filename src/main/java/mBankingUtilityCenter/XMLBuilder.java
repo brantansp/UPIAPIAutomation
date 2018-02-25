@@ -31,8 +31,14 @@ public class XMLBuilder {
 	 * main method to unit test page components
 	 */
 	public static void main(String[] args) throws Exception {
-		log.info(requestBuilder(0));
-		HttpConnect.postXML(requestBuilder(0));
+		log.info("1 : "+requestBuilder(2));
+		//log.info("2 : "+requestBuilder(1));
+		//int index = 1;
+		//log.info(StaticStore.UPIMenuDesc[index][0].substring(StaticStore.UPIMenuDesc[index][0].lastIndexOf("=")+1, StaticStore.UPIMenuDesc[index][0].length()));
+		//log.info(parameteriedUPI(0));
+		//log.info(StaticStore.ReqMenuDesc[2][1]);
+		//log.info(XMLRequest(parameteriedReq(1)));
+		//HttpConnect.postXML(requestBuilder(0));
 	}
 	
 	/*
@@ -41,7 +47,7 @@ public class XMLBuilder {
 	public static String parameteriedUPI(int index)	
 	{
 		String Request ="";
-		for(int x=1; x< StaticStore.ReqMenuDesc[index].length; x++ )
+		for(int x=1; x< StaticStore.UPIMenuDesc[index].length; x++ )
     	{	
     		Request =Request + StaticStore.UPIMenuDesc[index][x]+";";
     	}
@@ -87,13 +93,14 @@ public class XMLBuilder {
 	{
 		StringBuilder sb = new StringBuilder();		
 		String transaction =StaticStore.UPIMenuDesc[index][0].substring(StaticStore.UPIMenuDesc[index][0].lastIndexOf("=")+1, StaticStore.UPIMenuDesc[index][0].length());
+		log.info(StaticStore.UPIMenuDesc[index][0].substring(StaticStore.UPIMenuDesc[index][0].lastIndexOf("=")+1, StaticStore.UPIMenuDesc[index][0].length()));
 		sb.append("<v:Envelope xmlns:i=\"http://www.w3.org/1999/XMLSchema-instance\" xmlns:d=\"http://www.w3.org/1999/XMLSchema\" xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\">");
 		sb.append("<v:Header />");
 		sb.append("<v:Body>");
 		sb.append("<"+transaction+" xmlns=\"http://com/fss/upi\" id=\"o0\" c:root=\"1\">");
 		sb.append("<req>");
-		sb.append(XMLRequest(parameteriedReq(0)));
-		sb.append("<UPI>"+XMLRequest(parameteriedUPI(0))+"</UPI>");
+		sb.append(XMLRequest(parameteriedReq(index)));
+		sb.append("<UPI>"+XMLRequest(parameteriedUPI(index))+"</UPI>");
 		sb.append("</req>");
 		sb.append("</"+transaction+">");
 		sb.append("</v:Body>");
