@@ -1,5 +1,6 @@
 package mBankingUtilityCenter;
 
+import java.security.SecureRandom;
 import java.util.Random;
 import java.math.BigInteger;
 
@@ -9,27 +10,20 @@ import java.math.BigInteger;
  *
  */
 public class RandomNumGenerator {
-	//static BigInteger randNum  = new BigInteger(53, new Random());
-	static BigInteger randNum;
-	public static BigInteger generate()
-	{
-	    randNum  = new BigInteger(53, new Random());
-		if (lengthCheck(randNum)) 
-		{
-			generate();
-		}
-		return randNum;
+	static final String AB = "012345I6789ABCDE";
+	static SecureRandom rnd = new SecureRandom();
+	
+	public static void main(String[] args) {
+        System.out.println(genarate(32));
 	}
 	
-	public static boolean lengthCheck(BigInteger randNum)
-	{
-		boolean flag =false;
-		if (randNum.toString().length() != 16) 
-		{
-			flag = true;
+	public static String genarate( int len ){
+		   StringBuilder sb = new StringBuilder( len );
+		   for( int i = 0; i < len; i++ ) 
+		      sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+		   return sb.toString();
 		}
-		return flag;
-	}
+	
 }
 
 

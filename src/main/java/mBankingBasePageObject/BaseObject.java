@@ -46,12 +46,12 @@ public static String buildRequest(int index)
 		/*transactionID= response.substring(response.lastIndexOf("TXNID:")+6, response.lastIndexOf("TXNID:")+18);
 		log.info("Transaction ID : "+transactionID);
 	*/
-		if(false)
+		if(true)
 		{
-			dbResult = dbTransactionlog.fetchRecord(transactionID);
+			dbResult = dbTransactionlog.fetchRecord("VJB91D569AF1AEC4227B7D8B43D82A810BC");
 			//System.out.println(StaticStore.menuDesc[index][0]);
-			//log.info("DB Result : "+dbResult);
-		//	WriteToCSVFile.reportGeneration(StaticStore.menuDesc[index][0], dbResult);
+			log.info("DB Result : "+dbResult);
+			WriteToCSVFile.reportGeneration( dbResult);
 		}		
 	} catch (IOException e) {
 		e.printStackTrace();
@@ -63,9 +63,12 @@ public static String buildRequest(int index)
 		return  response;
   }
 
-public static void assertResponse(String response, int index)
+public static void main(String[] args) throws IOException {
+	HttpConnect.postXML(XMLBuilder.changePin());
+}
+public static void assertResponse(String response)
 {
-//	assertTrue(response.contains(StaticStore.menuDesc[index][1].substring(StaticStore.menuDesc[index][1].length()-2 , StaticStore.menuDesc[index][1].length())+"00"));		
+ assertTrue (response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>")).contains("000"));		
 }
 }
 
