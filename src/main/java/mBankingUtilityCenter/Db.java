@@ -14,7 +14,7 @@ import java.sql.Statement;
  * @author brantansp
  *
  */
-public class dbTransactionlog extends ExtentManager {
+public class Db extends ExtentManager {
 	private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	//private static final String DB_CONNECTION = "jdbc:oracle:thin:@//10.144.24.45:1527/ormpypre";
 	private static final String DB_CONNECTION = "jdbc:oracle:thin:@//"+dbprop.getProperty("hostName")+":"+dbprop.getProperty("port")+"/"+dbprop.getProperty("serviceName")+"";
@@ -30,13 +30,13 @@ public class dbTransactionlog extends ExtentManager {
 	public static void main(String[] argv) {
 
 		try {
-			System.out.println(fetchRecord("VJB91D569AF1AEC4227B7D8B43D82A810BC"));
+			System.out.println(fetchTxn("VJB91D569AF1AEC4227B7D8B43D82A810BC"));
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	public static String [] fetchRecord( String transactionID) throws SQLException {
+	public static String [] fetchTxn( String transactionID) throws SQLException {
 
 		String selectTableSQL ="select TXN_ID, TXN_STATUS, RESPONSECODE,TXN_TYPE, DEL_ID, PAYER_MOBILE_NO, PAYER_ACCOUNT_NO, PAYER_ADDRESS, PAYEE_MOBILE_NO, PAYEE_ACCOUNT_NO, PAYEE_ADDRESS, BANK_ID, RESP_DESC, PAYEE_IFSC, TXN_EXPDATE, PAYER_TYPE, TXN_REF_ID, PAYER_IFSC, PAYER_CODE, PAYEE_CODE, MERCHANTID, TERMINALID "
 				+ "from upi_transactionlog where "

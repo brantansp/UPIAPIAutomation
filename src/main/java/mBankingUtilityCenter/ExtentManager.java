@@ -36,7 +36,7 @@ import com.relevantcodes.extentreports.LogStatus;
  * @author brantansp
  *
  */
-public class ExtentManager{
+public class ExtentManager {
 	
 	public static ExtentReports extent;
 	public static ExtentTest extentLogger;
@@ -143,6 +143,18 @@ public class ExtentManager{
           }
         }
 	
+    }
+
+    public static String getResCode (String response)
+    {
+    	String resCode = response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>"));
+    	return resCode;
+    }
+    
+    public static String getTranID (String response)
+    {
+    	String tranID = response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>"));
+    	return tranID;
     }
 }
 

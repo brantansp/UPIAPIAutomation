@@ -9,16 +9,16 @@ import java.sql.SQLException;
 import java.util.Properties;
 import mBankingUtilityCenter.ExtentManager;
 import mBankingUtilityCenter.HttpConnect;
-import mBankingUtilityCenter.WriteToCSVFile;
+import mBankingUtilityCenter.Report;
 import mBankingUtilityCenter.XMLBuilder;
-import mBankingUtilityCenter.dbTransactionlog;
+import mBankingUtilityCenter.Db;
 
 import org.testng.annotations.Test;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+
 
 /**
  * 
@@ -33,8 +33,9 @@ public class Transactions extends ExtentManager{
 	public static ExtentTest extentLogger;
 	protected static Properties prop;
 	public static Properties dbprop;
+	public static String rrn;
 	private static String dbResult[];
-	
+	private static String dbReport= "Y";	
 	private static Log log = LogFactory.getLog(MethodHandles.lookup().lookupClass().getSimpleName());
 	
 	static{
@@ -56,11 +57,14 @@ public class Transactions extends ExtentManager{
 	
 	@Test
 	public void ListBankAcc() throws IOException, SQLException {
-		
 		response = postXML(XMLBuilder.ListBankAcc());
-		assertTrue (response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>")).contains("000"));
-		
+		if(dbReport=="Y")
+		{
+			Report.write(Db.fetchTxn(getTranID(response)));
+		}
+		assertTrue (getResCode(response).contains("000"));
 	}
+
 
 	@Test
 	public void RegisterAcc() throws IOException, SQLException {
@@ -137,12 +141,12 @@ public class Transactions extends ExtentManager{
 	}
 	
 	public static void main(String[] args) throws IOException, SQLException {
-		response = postXML(AddBank());
+		response = postXML(XMLBuilder.AddBank());
 		if(true)
 		{
-			dbResult = dbTransactionlog.fetchRecord("VJB91D569AF1AEC4227B7D8B43D82A810BC");
+			dbResult = Db.fetchTxn(rrn);
 			System.out.println("DB Result : "+dbResult);
-			WriteToCSVFile.reportGeneration( dbResult);
+			Report.write( dbResult);
 		}		
 		assertTrue (response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>")).contains("000"));
 	}

@@ -17,7 +17,7 @@ import java.sql.SQLException;
  *
  */
 
-public class WriteToCSVFile {
+public class Report {
 	public static String result[] ;
 	public static String TXN_ID ;
 	public static String TXN_STATUS;
@@ -43,11 +43,11 @@ public class WriteToCSVFile {
 	
     public static void main(String[]args) throws IOException, SQLException{
     	String transactionID= "VJB91D569AF1AEC4227B7D8B43D82A810BC";
-    	String[] dbResult = dbTransactionlog.fetchRecord(transactionID);
-    	WriteToCSVFile.reportGeneration(dbResult);
+    	String[] dbResult = Db.fetchTxn(transactionID);
+    	Report.write(dbResult);
     }
     
-    public static void reportGeneration(String dbResult[]) throws FileNotFoundException
+    public static void write(String dbResult[]) throws FileNotFoundException
     {
     	result = dbResult;
     	File dir = new File(".\\reports");
