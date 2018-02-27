@@ -1,0 +1,230 @@
+Account registration
+
+<RegisterAcc xmlns="http://com/fss/upi" xmlns:c="http://schemas.xmlsoap.org/soap/encoding/" xmlns:d="http://www.w3.org/1999/XMLSchema" xmlns:i="http://www.w3.org/1999/XMLSchema-instance" xmlns:v="http://schemas.xmlsoap.org/soap/envelope/" c:root="1" id="o0">
+<req>
+<CredList>
+<CredsAllowed>
+<dType i:type="d:string">Numeric</dType>
+<type i:type="d:string">PIN</type>
+<subType i:type="d:string">MPIN</subType>
+<dLength i:type="d:string">4</dLength>
+</CredsAllowed>
+<CredsAllowed>
+<dType i:type="d:string">Numeric</dType>
+<type i:type="d:string">OTP</type>
+<subType i:type="d:string">SMS</subType>
+<dLength i:type="d:string">6</dLength>
+</CredsAllowed>
+</CredList>
+<DType i:type="d:string"/>
+<IFSC i:type="d:string">UTBI0OCH007</IFSC>
+<AccType i:type="d:string">10</AccType>
+<AccRefNumber i:type="d:string">6009576201757</AccRefNumber>
+<VerifiedName i:type="d:string">UNBI HOST ACCNT 3</VerifiedName>
+<MBEBA i:type="d:string">N</MBEBA>
+<AEBA i:type="d:string">N</AEBA>
+<BankName i:type="d:string">United Bank of India</BankName>
+<DLength i:type="d:string"/>
+<AccNo i:type="d:string">6009XXXXX1757</AccNo>
+<UPI>
+<UserID i:type="d:string">UserID</UserID>
+<BankId i:type="d:string">504511</BankId>
+<OrgId i:type="d:string">400046</OrgId>
+<PayerType i:type="d:string">PERSON</PayerType>
+<MobileNo i:type="d:string">9791102968</MobileNo>
+<Remarks i:type="d:string"/>
+<PayerCode i:type="d:string">0000</PayerCode>
+<Channel i:type="d:string">03</Channel>
+<AppVersion i:type="d:string">1.1.3</AppVersion>
+<UserPwd i:type="d:string">111111</UserPwd>
+<DeviceID i:type="d:string">69ff6866</DeviceID>
+<MsgId i:type="d:string">UBI1DAD8DEF81344AD1B2019C06A97ADF02</MsgId>
+<TimeStamp i:type="d:string">1519626789</TimeStamp>
+</UPI>
+</req>
+</RegisterAcc>
+
+
+Set upi pin
+<MobBankRegistration xmlns="http://com/fss/upi" xmlns:c="http://schemas.xmlsoap.org/soap/encoding/" xmlns:d="http://www.w3.org/1999/XMLSchema" xmlns:i="http://www.w3.org/1999/XMLSchema-instance" xmlns:v="http://schemas.xmlsoap.org/soap/envelope/" c:root="1" id="o0">
+<req>
+<AddrType i:type="d:string">ACCOUNT</AddrType>
+<AccType i:type="d:string">SAVINGS</AccType>
+<OTP i:type="d:string">2.0|VYGZYuXpaWXDdhNDCH4MfmItYn3nI0fumsbais0Uo/57q4CSWBX863vpHSXs/JNTwkrS3iT7lOGEXNBOPXM8foxDPeqGkTKi1Urk7DBDo8PjN/HhjgJlQ0k50x9GFkPxUFDUsADVkF/UZfb/uB/O/xMJbcYfE0sNCBCRDNgSJsn0O+cN8VQpb1hld2OSo3Ylonf6CkflLKUKRtEJRbXDRnNd315vFWhKReJcoEaRGJvB4MMh/EZ7OorDN+JG3pNVsTzqkhzG/e6itpVKfxLUU3weMkR8Uaae6uzRzdcerQY/HGIB5xBR8Aora0EC9xz+A0UcU/cy1XIOkAee9PUq0g==</OTP>
+<AccNo i:type="d:string">6009576201757</AccNo>
+<DevType i:type="d:string">Android</DevType>
+<DevIp i:type="d:string">100.80.102.110</DevIp>
+<DevOs i:type="d:string">Android 5.1.1</DevOs>
+<ATMPIN i:type="d:string"/>
+<IFSC i:type="d:string">UTBI0OCH007</IFSC>
+<DevId i:type="d:string">69ff6866</DevId>
+<DevApp i:type="d:string">com.fss.unbipsp</DevApp>
+<CredType i:type="d:string">PIN</CredType>
+<DevLocation i:type="d:string">SIPCOT-ThalamburRd,Semmanjeri,TamilNadu603103,India,Semmanjeri,India</DevLocation>
+<PayerAccNo i:type="d:string">6009576201757</PayerAccNo>
+<PIN i:type="d:string">2.0|o4ypla5UO+Lxi+PHVCBdrzAHiy/q4LP+rbl6d3zNEbkffJ71/fMmXz4xskNOh6wPm1PHp9YDdBp7u9aZgZISxUCcTPgVjhmv/E0zdmrxBq2NYXshYtV2kZnOaNKgh6acAbS7a0N0J3iBSQxHJKo17MM8rdKd5QvEbXU8Z0x/fQfOKDYe+EF1ccjChAHEpdIhgSInU/yawZmJ5cDReNki+O8FzSwIsNLNrvZ6l40QeBp5SMU61S9uSUllhV39mSAw1AXOAEbG4hNk3IFARZLIj4bfs3R2iMgpOJVrJ7H6iOkr648LkvSjBccpEvaR5Lc1zP/c9kPfOoyg7mmnfBnhJA==</PIN>
+<KeyCode i:type="d:string">NPCI</KeyCode>
+<CardDigits i:type="d:string">523896</CardDigits>
+<ExpDate i:type="d:string">1219</ExpDate>
+<KeyIndex i:type="d:string">20150822</KeyIndex>
+<GeoCode i:type="d:string">12.8356814,80.2227594</GeoCode>
+<DevCapability i:type="d:string">805712127251000603103805712627438</DevCapability>
+<UPI>
+<UserID i:type="d:string">UserID</UserID>
+<BankId i:type="d:string">504511</BankId>
+<OrgId i:type="d:string">400046</OrgId>
+<PayerType i:type="d:string">PERSON</PayerType>
+<MobileNo i:type="d:string">9791102968</MobileNo>
+<Remarks i:type="d:string"/>
+<PayerCode i:type="d:string">0000</PayerCode>
+<Channel i:type="d:string">03</Channel>
+<AppVersion i:type="d:string">1.1.3</AppVersion>
+<UserPwd i:type="d:string">111111</UserPwd>
+<DeviceID i:type="d:string">69ff6866</DeviceID>
+<MsgId i:type="d:string">UBID2E5CAE8530D47549559E8A0F601325C</MsgId>
+<TimeStamp i:type="d:string">1519626917</TimeStamp>
+</UPI>
+</req>
+</MobBankRegistration>
+
+change pin
+
+<ChangePin xmlns="http://com/fss/upi" xmlns:c="http://schemas.xmlsoap.org/soap/encoding/" xmlns:d="http://www.w3.org/1999/XMLSchema" xmlns:i="http://www.w3.org/1999/XMLSchema-instance" xmlns:v="http://schemas.xmlsoap.org/soap/envelope/" c:root="1" id="o0">
+<req>
+<OldPin i:type="d:string">2.0|MhI8EuKFFuCesTzCOh7M2bV7vvlftE5V+VuR1ssQHgUH/jM6DtfeFsWn9y4cNkMeJT2ITYMy8I0GuwvEvFS/J2lW0aZOOddf7nnfoSZFwi3e4SsRGN5n0OXoVl6FZSwf9qPe6mm2gNZNlMSpZOmRlFkgTODB5gsZWFVzAasBp6K63db7hsKwttaeCYjydOAnGQRBJ8UaRCdw0hR5j23DD0iVp+CuTS1hEtNIOd87EjIiWvZjFACjQVQIhQLVeSzU1Ev03esmt6RNvdvtCyM649V3x67ylwGLzw86ks8L5mYy9KGSJWh614XAVdQAxFmB7fHePNc773cQi84x2hbUzQ==</OldPin>
+<NewKeyIndex i:type="d:string">20150822</NewKeyIndex>
+<OldKeyIndex i:type="d:string">20150822</OldKeyIndex>
+<DevType i:type="d:string">Android</DevType>
+<DevIp i:type="d:string">100.80.102.110</DevIp>
+<DevOs i:type="d:string">Android 5.1.1</DevOs>
+<DevId i:type="d:string">69ff6866</DevId>
+<DevApp i:type="d:string">com.fss.unbipsp</DevApp>
+<CredType i:type="d:string">PIN</CredType>
+<DevLocation i:type="d:string">SIPCOT-ThalamburRd,Semmanjeri,TamilNadu603103,India,Semmanjeri,India</DevLocation>
+<PayerAccNo i:type="d:string">6009576201757</PayerAccNo>
+<BankName i:type="d:string">United Bank of India</BankName>
+<NewPin i:type="d:string">2.0|JK2luoKizs6jA1DFPgKYZN6yk8YURinHyt+roZhCnF1JmEZrI523yUXRcth29kT/CT+tXRy7+FuQN4Is/g3ovkc6q9P0Dpr4WmpAEL1EV3UTf6ntxN8o7G4yYWRPX6azQ5goWj4+PJ7ZAQqvH9PAplWAnHXaUDeasNvmKMltGDbjURnX24sGX6kGHXsVnYWZYHeSbYu3zNZ1LOE4LhxWM4J5dnDHmBZBjFWSJrIJY+44ZlWLMx9iF8nzvF++o1QmMEcJEJIniZ3n0N7SFm4H8AkCi/kq/CKL4S2MvuoUwRb46075sNDeSr54jIWnm/CWfvEdflQsQD+OcZ9v3zSfyg==</NewPin>
+<NewKeyCode i:type="d:string">NPCI</NewKeyCode>
+<GeoCode i:type="d:string">12.8356649,80.2227648</GeoCode>
+<DevCapability i:type="d:string">805712105875000603103805712126447</DevCapability>
+<OldKeyCode i:type="d:string">NPCI</OldKeyCode>
+<UPI>
+<UserID i:type="d:string">UserID</UserID>
+<BankId i:type="d:string">504511</BankId>
+<OrgId i:type="d:string">400046</OrgId>
+<PayerType i:type="d:string">PERSON</PayerType>
+<MobileNo i:type="d:string">9791102968</MobileNo>
+<Remarks i:type="d:string"/>
+<PayerCode i:type="d:string">0000</PayerCode>
+<Channel i:type="d:string">03</Channel>
+<AppVersion i:type="d:string">1.1.3</AppVersion>
+<UserPwd i:type="d:string">111111</UserPwd>
+<DeviceID i:type="d:string">69ff6866</DeviceID>
+<MsgId i:type="d:string">UBIFB9D0D6E256E4C98B56C3ABDA184C841</MsgId>
+<TimeStamp i:type="d:string">1519627142</TimeStamp>
+</UPI>
+</req>
+</ChangePin>
+
+Remote Onus debit
+
+<SendMoney xmlns="http://com/fss/upi" xmlns:c="http://schemas.xmlsoap.org/soap/encoding/" xmlns:d="http://www.w3.org/1999/XMLSchema" xmlns:i="http://www.w3.org/1999/XMLSchema-instance" xmlns:v="http://schemas.xmlsoap.org/soap/envelope/" c:root="1" id="o0">
+<req>
+<AddrType i:type="d:string">ACCOUNT</AddrType>
+<PayeeVirAddr i:type="d:string">upibabudirect@ubin</PayeeVirAddr>
+<ReqMethodType i:type="d:string">Normal</ReqMethodType>
+<PayerCode i:type="d:string">0000</PayerCode>
+<Pin i:type="d:string">2.0|YTN3pJf1l4aWRz3ViilLVsoFolcJ6ZnuJ20RKrOMtM0PblfHlcsAwiljajh/g+PFbUhj4bHrvciSo/hYrVIxzTZ6AQCsLQVndnWJXYnk0Pn0WGzMjoyst2vcN3GdZvqjsIDT1ytx1U4IjSc0fB+OaSNrNcZEKmf0H6vmv8uDVo5Ho9jWf8us7pVimMM4Z+0im2FNmaa60DC2eV99bg/1OaLdsULPsJMLbxF+N/meHv1ZFCLf+nNrwPqdLew0ThaAdWYsFIwYygEHAtOvvzk+BTgLUyRdWxHlhI5+aTlxjSmJYn3CwJZ4H+8jatLVGkAFNbzvOnhsvz/Jh/zW8URAIQ==</Pin>
+<NickName i:type="d:string"/>
+<PayeeName i:type="d:string">MAMTA  BHARDWAJ</PayeeName>
+<CurrencyCode i:type="d:string">INR</CurrencyCode>
+<payeeTranserType i:type="d:string">VIR</payeeTranserType>
+<DevType i:type="d:string">Android</DevType>
+<DevIp i:type="d:string">100.80.102.110</DevIp>
+<DevOs i:type="d:string">Android 5.1.1</DevOs>
+<DevId i:type="d:string">69ff6866</DevId>
+<DevApp i:type="d:string">com.fss.ubipsp</DevApp>
+<CredType i:type="d:string">PIN</CredType>
+<PayerAccNo i:type="d:string">0720010303862</PayerAccNo>
+<DevLocation i:type="d:string">SIPCOT-ThalamburRd,Semmanjeri,TamilNadu603103,India,Semmanjeri,India</DevLocation>
+<PayeeCode i:type="d:string">0000</PayeeCode>
+<Amount i:type="d:string">3.00</Amount>
+<KeyCode i:type="d:string">NPCI</KeyCode>
+<KeyIndex i:type="d:string">20150822</KeyIndex>
+<PayerVirAddr i:type="d:string">unbjrealhost@ubin</PayerVirAddr>
+<GeoCode i:type="d:string">12.8355885,80.270718</GeoCode>
+<DevCapability i:type="d:string">805712182588000603103805712020126</DevCapability>
+<UPI>
+<UserID i:type="d:string">UserID</UserID>
+<BankId i:type="d:string">504432</BankId>
+<OrgId i:type="d:string">400045</OrgId>
+<PayerType i:type="d:string">PERSON</PayerType>
+<MobileNo i:type="d:string">9791102968</MobileNo>
+<Remarks i:type="d:string">UPI</Remarks>
+<PayerCode i:type="d:string">0000</PayerCode>
+<Channel i:type="d:string">03</Channel>
+<AppVersion i:type="d:string">1.1.1</AppVersion>
+<UserPwd i:type="d:string">111111</UserPwd>
+<DeviceID i:type="d:string">69ff6866</DeviceID>
+<MsgId i:type="d:string">UOB81BC6ED542C640968E98CF3CECF46872</MsgId>
+<TimeStamp i:type="d:string">1519627218</TimeStamp>
+</UPI>
+</req>
+</SendMoney>
+
+
+Reversal Remote ONUS DEBIT 
+
+Reversal from npci
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:ReqPay xmlns:ns2="http://npci.org/upi/schema/" xmlns:ns3="http://npci.org/cm/schema/">
+<Head msgId="1GRDpegBbA5wBmPfRmLk" orgId="NPCI" ts="2018-02-26T12:12:22+05:30" ver="1.0"/>
+<Meta>
+<Tag name="PAYREQSTART" value="2018-02-26T12:10:16+05:30"/>
+<Tag name="PAYREQEND" value="2018-02-26T12:11:46+05:30"/>
+</Meta>
+<Txn custRef="805712370592" id="NPCI000000001GRDpegBbA5wBmPfRmLl" orgRespCode="UT" orgTxnId="UOB81BC6ED542C640968E98CF3CECF46872" ts="2018-02-26T12:10:16+05:30" type="REVERSAL"/>
+<Payer addr="unbjrealhost@ubin" code="0000" name="SK AFSANA KHATUN" seqNum="1" type="PERSON">
+<Info>
+<Identity type="ACCOUNT" verifiedName="SK AFSANA KHATUN"/>
+<Rating verifiedAddress="TRUE"/>
+</Info>
+<Ac addrType="ACCOUNT">
+<Detail name="ACNUM" value="0720010303862"/>
+<Detail name="IFSC" value="UTBI0SLK047"/>
+<Detail name="ACTYPE" value="SAVINGS"/>
+</Ac>
+<Amount curr="INR" value="3.00"/>
+</Payer>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+<Reference URI="">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<DigestValue>RkvTeBhOnIxqaQk4lysEjK6H+LTw8g1spNIyPw57y8U=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue>ofkF3ljJL4g8/IS9ESomhJpBKrh0gXAV9kGZP1sZPCftbZzAqq28+JXJR+F09cTf9TeQUwW+24dv
+oCoAUOZFUZhgcgjE4Cf+TfGuHaSGfXShvfQdaiX5rWXZPttmlrAy7o1G5ejiHKyO45V36ZHUNANH
+pAkHapkXPnb23JLkaJ5bNvATuO+i/cKC1hEV4B6PDai2f8KlU/D8hQFNMaUBWNPWgxUN3GVI2vEb
+NEBZJkyNY09eolSCxD1fOUjPJXIFX2nxuP9InXnd8E8Ug3zlYgUGI3QyRGwGXFJP9gIqYhz2zuM3
+B9e2zufSOplUGJAPIm6dx7nBa5ydl9zqnv4wqQ==</SignatureValue>
+<KeyInfo>
+<KeyValue>
+<RSAKeyValue>
+<Modulus>uMKxWfy0WcPp98muBWa6yhpmb6ZGZGSKHRIOv05UlIN5TbUPl6yEerh7Wj0+JyKfsOntRdAVhkLJ
+GRoHwH6gEEeFNHge7kPea/B33cQAbqa39mnP5F1aaZT3tjJnKrfI1Wum0crdb7dAMzft4JILOEa+
+s3Uh7OdYEl/Xp7EisdSoJ345Cj0LTfLZEQzRdVGovXZrfLByJysH11V9tDrIVv75C/3UndwjHt3N
+rqzNBoUMh5VZRFkcwuebUAkhIed5gvoysJwd0yYGrAUXNrXJJDTAj5diCuasWyfWZR9lsX5l14hd
+xF+lqadR/pgII53DW5oEy2LMXgvt2u/qmSml8w==</Modulus>
+<Exponent>AQAB</Exponent>
+</RSAKeyValue>
+</KeyValue>
+</KeyInfo>
+</Signature>
+</ns2:ReqPay>
