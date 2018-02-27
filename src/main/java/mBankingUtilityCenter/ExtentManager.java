@@ -1,8 +1,21 @@
 package mBankingUtilityCenter;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Method;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Properties;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.SkipException;
@@ -27,6 +40,19 @@ public class ExtentManager{
 	
 	public static ExtentReports extent;
 	public static ExtentTest extentLogger;
+	protected static Properties prop;
+	public static Properties dbprop;
+	static String targetURL="http://10.144.20.71:9095/UPIService?bridgeEndpoint=true";
+	private static Log log = LogFactory.getLog(MethodHandles.lookup().lookupClass().getSimpleName());
+	
+	static{
+		try {
+			propertyLoader();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	@BeforeSuite
 	public void setUp(){
@@ -42,8 +68,7 @@ public class ExtentManager{
 		extentLogger.assignCategory("Automation Testing");
 		extentLogger.log( LogStatus.PASS, "Test started successfully");
 	}
-	
-	
+		
 	@AfterMethod
 	public void getResult(ITestResult result){
 		if(result.getStatus() == ITestResult.FAILURE){
@@ -58,6 +83,67 @@ public class ExtentManager{
 	public void endReport(){ 
                 extent.flush();
     } 
+
+    public static void propertyLoader() throws FileNotFoundException, IOException
+    {
+		prop = new Properties();
+		prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\Requests\\requestsparam.properties")));
+		dbprop = new  Properties();
+		dbprop.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\property\\UPI.db")));
+    }
+
+    public static String postXML(String urlParams) throws IOException
+    {
+
+        java.net.URL url;
+        HttpURLConnection connection = null;  
+        try {
+          url = new URL(targetURL);
+          connection = (HttpURLConnection)url.openConnection();
+          connection.setRequestMethod("POST");
+          connection.setRequestProperty("SOAPAction", "");
+          connection.setUseCaches (false);
+          connection.setDoInput(true);
+          connection.setDoOutput(true);
+          
+          //Send request
+          DataOutputStream wr = new DataOutputStream (connection.getOutputStream ());
+          wr.writeBytes (urlParams);
+          wr.flush ();
+          wr.close ();
+          //Get Response    
+          InputStream is ;
+          log.info("response code="+connection.getResponseCode());
+          if(connection.getResponseCode()<=400){
+              is=connection.getInputStream();
+          }else{
+              /* error from server */
+              is = connection.getErrorStream();
+        } 
+         // is= connection.getInputStream();
+          BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+          String line;
+          StringBuffer response = new StringBuffer(); 
+          while((line = rd.readLine()) != null) {
+            response.append(line);
+            response.append('\r');
+          }
+          rd.close();
+          log.info("response"+response.toString());
+          return response.toString();
+
+        } catch (Exception e) {
+        	log.info("here"+e);
+          return null;
+
+        } finally {
+
+          if(connection != null) {
+            connection.disconnect(); 
+          }
+        }
+	
+    }
 }
 
 

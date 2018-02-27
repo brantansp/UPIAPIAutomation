@@ -9,33 +9,23 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import mBankingPageObjectModel.StaticStore;
-
 /**
  * 
  * @author brantansp
  *
  */
-public class dbTransactionlog {
+public class dbTransactionlog extends ExtentManager {
 	private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	//private static final String DB_CONNECTION = "jdbc:oracle:thin:@//10.144.24.45:1527/ormpypre";
-	private static final String DB_CONNECTION = "jdbc:oracle:thin:@//"+StaticStore.dbprop.getProperty("hostName")+":"+StaticStore.dbprop.getProperty("port")+"/"+StaticStore.dbprop.getProperty("serviceName")+"";
-	private static final String DB_USER = StaticStore.dbprop.getProperty("userName");
-	private static final String DB_PASSWORD =StaticStore.dbprop.getProperty("password");
+	private static final String DB_CONNECTION = "jdbc:oracle:thin:@//"+dbprop.getProperty("hostName")+":"+dbprop.getProperty("port")+"/"+dbprop.getProperty("serviceName")+"";
+	private static final String DB_USER = dbprop.getProperty("userName");
+	private static final String DB_PASSWORD =dbprop.getProperty("password");
 	private static Connection dbConnection = null;
 	private static Statement statement = null;
 	private static String transactionID="735418241323";
 	private static String result[]= new String [22];//= "";
 	private static ResultSet resultSet;
 	
-	static{
-		try {
-			StaticStore.loadObjects();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public static void main(String[] argv) {
 

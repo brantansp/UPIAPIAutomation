@@ -21,7 +21,7 @@ import org.testng.reporters.jq.Main;
 public class HttpConnect {
 
 	private static Log log = LogFactory.getLog(MethodHandles.lookup().lookupClass().getSimpleName());
-
+	
 	public static void main(String[] args) throws IOException {
 		HttpConnect conn=new HttpConnect();	
 	}
