@@ -30,7 +30,7 @@ public class XMLBuilder {
 	
 	public static Properties loadObjects() throws FileNotFoundException, IOException{
 		prop = new Properties();
-		prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\Requests\\requests.properties")));
+		prop.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\Requests\\requestsparam.properties")));
 		dbprop = new  Properties();
 		dbprop.load(new FileInputStream(new File(System.getProperty("user.dir")+"\\property\\UPI.db")));
 return prop;
@@ -151,7 +151,7 @@ return prop;
 			sb.append("</AddBank>");
 			sb.append("</v:Body>");
 			sb.append( "</v:Envelope>");
-			log.info(sb.toString());
+			log.info("Request : "+sb.toString());
 			return sb.toString();
 			}
 			

@@ -132,19 +132,21 @@ public class Transactions extends ExtentManager{
 		
 	@Test
 	public void AddBankTransactionPositiveFlow() throws IOException,SQLException{
-		
-		response = postXML(XMLBuilder.AddBank());
-		response = postXML(XMLBuilder.ListBankAcc());
+		postXML(XMLBuilder.AddBank());
+		 postXML(XMLBuilder.ListBankAcc());
 		response = postXML(XMLBuilder.ViewRegAccnts());
-		assertTrue (response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>")).contains("000"));
-		
+		if(dbReport=="Y")
+		{
+			Report.write(Db.fetchTxn(getTranID(response)));
+		}
+		assertTrue (getResCode(response).contains("000"));
 	}
 	
 	public static void main(String[] args) throws IOException, SQLException {
 		response = postXML(XMLBuilder.AddBank());
 		if(true)
 		{
-			dbResult = Db.fetchTxn(rrn);
+			dbResult = Db.fetchTxn(getTranID(response));
 			System.out.println("DB Result : "+dbResult);
 			Report.write( dbResult);
 		}		

@@ -2,12 +2,16 @@ package mBankingUtilityCenter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * 
@@ -25,7 +29,8 @@ public class Db extends ExtentManager {
 	private static String transactionID="735418241323";
 	private static String result[]= new String [22];//= "";
 	private static ResultSet resultSet;
-	
+	private static Log log = LogFactory.getLog(MethodHandles.lookup().lookupClass().getSimpleName());
+
 	
 	public static void main(String[] argv) {
 
@@ -41,7 +46,7 @@ public class Db extends ExtentManager {
 		String selectTableSQL ="select TXN_ID, TXN_STATUS, RESPONSECODE,TXN_TYPE, DEL_ID, PAYER_MOBILE_NO, PAYER_ACCOUNT_NO, PAYER_ADDRESS, PAYEE_MOBILE_NO, PAYEE_ACCOUNT_NO, PAYEE_ADDRESS, BANK_ID, RESP_DESC, PAYEE_IFSC, TXN_EXPDATE, PAYER_TYPE, TXN_REF_ID, PAYER_IFSC, PAYER_CODE, PAYEE_CODE, MERCHANTID, TERMINALID "
 				+ "from upi_transactionlog where "
 				+ "txn_id = '"+transactionID+"'";
-				
+				log.info("Query Executed : " +selectTableSQL);
 		try {
 			dbConnection = getDBConnection();
 			statement = dbConnection.createStatement();

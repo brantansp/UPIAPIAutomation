@@ -153,7 +153,7 @@ public class ExtentManager {
     
     public static String getTranID (String response)
     {
-    	String tranID = response.substring(response.lastIndexOf("<java:ResCode>")+14, response.lastIndexOf("</java:ResCode>"));
+    	String tranID = response.substring(response.lastIndexOf("<java:MsgId>")+12, response.lastIndexOf("</java:MsgId>"));
     	return tranID;
     }
 }
